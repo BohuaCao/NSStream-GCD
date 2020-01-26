@@ -12,24 +12,25 @@ import UIKit
 final class Input: NSObject {
 
 	var data = Data()
-	let stream: InputStream
+	let inputStream: InputStream
+	let outputStream: OutputStream
 	let queue: DispatchQueue
 
-	init(queue q: DispatchQueue) {
-	
+	init(queue q: DispatchQueue, output: OutputStream) {
 		guard let path = Bundle.main.path(forResource: "Space6", ofType: "jpg") else { fatalError() }
-		//let url = URL(fileURLWithPath: path)
-		guard let inputStream = InputStream(fileAtPath: path) else { fatalError() }
-		stream = inputStream
+		guard let input = InputStream(fileAtPath: path) else { fatalError() }
+		inputStream = input
+		outputStream = output
 		queue = q
-		CFReadStreamSetDispatchQueue(stream, queue)
+		CFReadStreamSetDispatchQueue(inputStream, queue)
+
 		super.init()
 
-		stream.delegate = self
+		inputStream.delegate = self
 	}
 
 	func run() {
-		stream.open()
+		inputStream.open()
 	}
 
 }
@@ -43,12 +44,17 @@ extension Input: StreamDelegate {
 			print("OPEN COMPLETED")
 		case .endEncountered:
 			print("AT END :-)")
-			self.stream.close()
+			self.inputStream.close()
 		case .hasBytesAvailable:
 			let bytes = UnsafeMutablePointer<UInt8>.allocate(capacity: 100_000)
-//			self.data.append(bytes, count: size)
-			let read = self.stream.read(bytes, maxLength: 100_000)
-			print("READ \(read) bytes!")
+			let readLen = self.inputStream.read(bytes, maxLength: 100_000)
+			if self.outputStream.hasSpaceAvailable {
+				let writeLen = self.outputStream.write(bytes, maxLength: readLen)
+				print("READ: writeLen=\(writeLen)")
+			} else {
+				print("READ: no space!!!")
+			}
+			print("READ \(readLen) bytes!")
 		case .errorOccurred:
 			print("WTF!!! Error")
 			break;

@@ -3,3 +3,4 @@
 //
 
 #import "Output.h"
+#import "MyOutputStream.h"

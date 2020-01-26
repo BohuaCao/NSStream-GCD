@@ -1,5 +1,5 @@
 //
-//  Output.h
+//  MyOutputStream.h
 //  NSStream-GCD
 //
 //  Created by David Hoerl on 8/13/19.
@@ -8,16 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class MyOutputStream;
-
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Output : NSObject
+@interface MyOutputStream : NSOutputStream
 
-@property (nonatomic, strong, readonly) NSOutputStream *output;
-
-- (instancetype)initWithQueue:(dispatch_queue_t) queue;
-- (void)run;
+//@property (nonatomic, strong, readonly) NSMutableData *data;
 
 @end
 

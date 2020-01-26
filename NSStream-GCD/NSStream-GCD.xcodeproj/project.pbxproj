@@ -16,6 +16,7 @@
 		DEE585292302FEA1003C3F75 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE585282302FEA1003C3F75 /* Input.swift */; };
 		DEE5852E2303087B003C3F75 /* Output.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE5852D2303087B003C3F75 /* Output.m */; };
 		DEE58532230335D9003C3F75 /* Space6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DEE58531230335D9003C3F75 /* Space6.jpg */; };
+		DEE58535230352DD003C3F75 /* MyOutputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE58534230352DD003C3F75 /* MyOutputStream.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		DEE5852C2303087B003C3F75 /* Output.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Output.h; sourceTree = "<group>"; };
 		DEE5852D2303087B003C3F75 /* Output.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Output.m; sourceTree = "<group>"; };
 		DEE58531230335D9003C3F75 /* Space6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Space6.jpg; sourceTree = "<group>"; };
+		DEE58533230352DD003C3F75 /* MyOutputStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyOutputStream.h; sourceTree = "<group>"; };
+		DEE58534230352DD003C3F75 /* MyOutputStream.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyOutputStream.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 				DEE585282302FEA1003C3F75 /* Input.swift */,
 				DEE5852C2303087B003C3F75 /* Output.h */,
 				DEE5852D2303087B003C3F75 /* Output.m */,
+				DEE58533230352DD003C3F75 /* MyOutputStream.h */,
+				DEE58534230352DD003C3F75 /* MyOutputStream.m */,
 				DEE5852B2303087A003C3F75 /* NSStream-GCD-Bridging-Header.h */,
 			);
 			path = "NSStream-GCD";
@@ -158,6 +163,7 @@
 				DEE585292302FEA1003C3F75 /* Input.swift in Sources */,
 				DEE5852E2303087B003C3F75 /* Output.m in Sources */,
 				DEE585192302FE77003C3F75 /* ViewController.swift in Sources */,
+				DEE58535230352DD003C3F75 /* MyOutputStream.m in Sources */,
 				DEE585152302FE77003C3F75 /* AppDelegate.swift in Sources */,
 				DEE585172302FE77003C3F75 /* SceneDelegate.swift in Sources */,
 			);

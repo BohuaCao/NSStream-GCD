@@ -10,12 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 	let queue = DispatchQueue(label: "Tester", qos: .background, attributes: [], target: DispatchQueue.global(qos: .background))
-	lazy var input: Input = Input(queue: self.queue)
+	lazy var output: Output = Output(queue: self.queue)
+	lazy var input: Input = Input(queue: self.queue, output: output.output)
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 
+		output.run()
 		input.run()
 	}
 
